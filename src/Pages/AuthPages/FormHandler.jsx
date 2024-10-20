@@ -202,7 +202,7 @@ function FormHandler() {
   };
 
   const submitHandlerWholeseller = async () => {
-    console.log(wholesellerInfo);
+    console.log("hello");
     const resp = await axios.post(
       "http://localhost:2020/finaldemo/RegistrationServlet",
       { ...wholesellerInfo, user_type: "wholeseller" } // Use wholesellerInfo state
