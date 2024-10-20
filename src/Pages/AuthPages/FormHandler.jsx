@@ -25,8 +25,8 @@ function FormHandler() {
     username: "",
     category: "",
     email: "",
-    aadhar_card: "",
-    phone: "",
+    aadhar_no: "",
+    mobile_no: "",
     address: "",
     license_no: "",
     password: "",
@@ -36,8 +36,8 @@ function FormHandler() {
   const [retailerInfo, setRetailerInfo] = useState({
     username: "",
     email: "",
-    aadhar_card: "",
-    phone: "",
+    aadhar_no: "",
+    mobile_no: "",
     address: "",
     license_no: "",
     password: "",
@@ -80,20 +80,20 @@ function FormHandler() {
     {
       label: "Email Address",
       inputType: "text",
-      name: "email_address",
+      name: "email",
       logo: <AiOutlineMail />,
       eye: false,
     },
     {
       label: "Aadhar Card Number",
       inputType: "text",
-      name: "adhaar_card",
+      name: "aadhar_no",
       logo: <FaRegAddressCard />,
       eye: true,
     },
     {
       label: "Phone Number",
-      name: "phone_number",
+      name: "mobile_no",
       inputType: "text",
       logo: <CiPhone />,
       eye: false,
@@ -138,7 +138,7 @@ function FormHandler() {
     {
       label: "Email Address",
       inputType: "text",
-      name: "email_address",
+      name: "email",
       logo: <AiOutlineMail />,
       eye: false,
     },
@@ -146,13 +146,13 @@ function FormHandler() {
       label: "Aadhar Card Number",
       inputType: "text",
       logo: <FaRegAddressCard />,
-      name: "adhaar_card",
+      name: "aadhar_no",
       eye: true,
     },
     {
       label: "Phone Number",
       inputType: "text",
-      name: "phone_number",
+      name: "mobile_no",
       logo: <CiPhone />,
       eye: false,
     },
@@ -193,7 +193,6 @@ function FormHandler() {
   const headingLogin = "Welcome Back!!";
 
   //
-
   const submitHandlerRetailer = async () => {
     const resp = await axios.post(
       "http://localhost:2020/finaldemo/RegistrationServlet",
@@ -203,6 +202,7 @@ function FormHandler() {
   };
 
   const submitHandlerWholeseller = async () => {
+    console.log(wholesellerInfo);
     const resp = await axios.post(
       "http://localhost:2020/finaldemo/RegistrationServlet",
       { ...wholesellerInfo, user_type: "wholeseller" } // Use wholesellerInfo state
