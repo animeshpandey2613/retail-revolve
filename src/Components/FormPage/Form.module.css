@@ -1,0 +1,12 @@
+.FormOverlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  width: 100vw;
+  height: 220vh;
+  background-color: white;
+  
+  /* Parallelogram cutout using clip-path */
+  clip-path: polygon(0 0, 0% 100%, 10% 100%, 19% 8%, 93% 8%, 84% 88%, 5% 88%, 0 100%, 100% 100%, 100% 0%);
+}
