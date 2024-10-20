@@ -22,7 +22,7 @@ function FormHandler() {
   });
 
   const [wholesellerInfo, setWholesellerInfo] = useState({
-    full_name: "",
+    username: "",
     category: "",
     email: "",
     aadhar_card: "",
@@ -34,7 +34,7 @@ function FormHandler() {
   });
 
   const [retailerInfo, setRetailerInfo] = useState({
-    full_name: "",
+    username: "",
     email: "",
     aadhar_card: "",
     phone: "",
@@ -66,7 +66,7 @@ function FormHandler() {
     {
       label: "Full Name",
       inputType: "text",
-      name: "full_name",
+      name: "username",
       logo: <CiUser />,
       eye: false,
     },
@@ -132,7 +132,7 @@ function FormHandler() {
       label: "Full Name",
       inputType: "text",
       logo: <CiUser />,
-      name: "full_name",
+      name: "username",
       eye: false,
     },
     {
@@ -197,21 +197,23 @@ function FormHandler() {
   const submitHandlerRetailer = async () => {
     const resp = await axios.post(
       "http://localhost:2020/finaldemo/RegistrationServlet",
-      { ...dataRetailer, user_type: "retailer" }
+      { ...retailerInfo, user_type: "retailer" } // Use retailerInfo state
     );
     console.log(resp);
   };
+
   const submitHandlerWholeseller = async () => {
     const resp = await axios.post(
       "http://localhost:2020/finaldemo/RegistrationServlet",
-      { ...dataWholeseller, user_type: "wholeseller" }
+      { ...wholesellerInfo, user_type: "wholeseller" } // Use wholesellerInfo state
     );
     console.log(resp);
   };
+
   const submitHandlerLogin = async () => {
     const resp = await axios.post(
       "http://localhost:2020/finaldemo/LoginServlet",
-      { ...dataLogin }
+      { ...loginInfo } // Use loginInfo state
     );
     console.log(resp);
   };
