@@ -1,5 +1,5 @@
 import React from 'react'
-import DescriptionOverlay from '../Components/Description/DescriptionOverlay'
+import DescriptionOverlay from '../Components/productDescription/DescriptionOverlay'
 function Description() {
   return (
     <div>

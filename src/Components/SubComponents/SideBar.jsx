@@ -67,6 +67,7 @@ function SideBar({ CartView, setCartView }) {
       sideRef.current.style.transform = `translateX(-${sideRef.current.offsetWidth}px)`;
       console.log(isOverflowing);
       sideRef.current.style.position = "absolute";
+      sideRef.current.style.minHeight = `${document.documentElement.scrollHeight}px`;
     } else {
       sideRef.current.style.transform = `translateX(0px)`;
       sideRef.current.style.position = "fixed";
@@ -90,7 +91,6 @@ function SideBar({ CartView, setCartView }) {
         const isOverflowingHeight =
           sideRef.current.scrollHeight > window.innerHeight;
         setIsOverflowing(isOverflowingHeight);
-        sideRef.current.style.minHeight = `${document.documentElement.scrollHeight}px`;
       }
     };
 
@@ -130,7 +130,7 @@ function SideBar({ CartView, setCartView }) {
                 <div className="w-max gap-3 flex flex-col">
                   <div className="flex items-center justify-between">
                     <div className="text-lg">price:</div>
-                    <div>{ele.price}/-</div>
+                    <div>₹{ele.price}/-</div>
                   </div>
                   <div className="flex items-center justify-between gap-1">
                     <div>quantity:</div>
@@ -189,7 +189,7 @@ function SideBar({ CartView, setCartView }) {
                   <div>{ele.Wholeseller}</div>
                   <div
                     onClick={() => CartRemoveHandler(index)}
-                    className="p-1 border-2 border-red-700 text-red-700 rounded-lg mt-2 text-center hover:bg-red-950 hover:text-white cursor-pointer duration-700"
+                    className="p-1 border-2 border-red-700 text-red-400 bg-[rgba(100,0,0,0.2)] rounded-lg mt-2 text-center hover:bg-[rgba(100,0,0,0.5)] hover:text-white cursor-pointer duration-700"
                   >
                     Remove
                   </div>
@@ -199,6 +199,29 @@ function SideBar({ CartView, setCartView }) {
           })}
         </div>
       </div>
+      <div className="w-1/2 mt-5">
+  <table className="table-auto w-full text-left">
+    <tbody>
+      <tr className=" border-gray-200">
+        <td className="p-2 font-semibold">Total Products Price:</td>
+        <td className="p-2">₹65,400/-</td>
+      </tr>
+      <tr className="b border-gray-200">
+        <td className="p-2 font-semibold">Total GST (7%):</td>
+        <td className="p-2">₹4,578/-</td>
+      </tr>
+      <tr className="border-b border-gray-200">
+        <td className="p-2 font-semibold">Discount Provided (-32%):</td>
+        <td className="p-2">₹20,928/-</td>
+      </tr>
+      <tr>
+        <td className="p-2 font-semibold">Amount To be Paid:</td>
+        <td className="p-2">₹49,050/-</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
       <div
         onClick={() => {
           setCartView(false);

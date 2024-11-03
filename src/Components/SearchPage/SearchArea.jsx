@@ -171,11 +171,13 @@ function SearchPage() {
           />
         </div>
         <div className="absolute z-10 ">
+          <div className="mt-44 relative z-20">
+            <ResultArea data={data} />
+            <ResultArea data={data} />
+            <ResultArea data={data} />
+          </div>
+          <div className="absolute z-50 top-0">
           <Navbar colorPrimary={"lightColor"} />
-          <div className="mt-44">
-            <ResultArea data={data} />
-            <ResultArea data={data} />
-            <ResultArea data={data} />
           </div>
         </div>
       </div>
