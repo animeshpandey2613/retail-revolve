@@ -199,6 +199,7 @@ function FormHandler() {
       { ...retailerInfo, user_type: "retailer" } // Use retailerInfo state
     );
     console.log(resp);
+    window.location.href = "/search";
   };
 
   const submitHandlerWholeseller = async () => {
@@ -208,15 +209,19 @@ function FormHandler() {
       { ...wholesellerInfo, user_type: "wholeseller" } // Use wholesellerInfo state
     );
     console.log(resp);
+    window.location.href = "/addproducts";
   };
 
   const submitHandlerLogin = async () => {
     const resp = await axios.post(
       "http://localhost:2020/finaldemo/LoginServlet",
       { ...loginInfo } // Use loginInfo state
-      
     );
     console.log(resp);
+    if (resp.data.user_type === "retailer") window.location.href = "/search";
+    else {
+      window.location.href = "/addproducts";
+    }
   };
 
   //

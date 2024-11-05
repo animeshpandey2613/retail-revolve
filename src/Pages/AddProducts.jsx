@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Overlay from "../Components/AddProducts/Overlay";
-import Navbar from "../Components/SubComponents/Navbar";
+import Navbar from "../Components/SubComponents/Navbar2";
 import Form from "../Components/AddProducts/Form";
 import axios from "axios";
 function AddProducts() {

@@ -1,6 +1,6 @@
 import React from "react";
 import Overlay from "../Components/AllOrders/Overlay";
-import Navbar from "../Components/SubComponents/Navbar"
+import Navbar from "../Components/SubComponents/Navbar2"
 import Content from "../Components/AllOrders/Content";
 function AllOrders() {
   return <div>

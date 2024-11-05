@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../Components/SubComponents/Navbar";
+import Navbar from "../../Components/SubComponents/Navbar3";
 import Overlay from "../../Components/FormPage/Overlay";
 import FormArea from "../../Components/FormPage/FormArea";
 function Form({ data, heading, submitHandler, setter }) {

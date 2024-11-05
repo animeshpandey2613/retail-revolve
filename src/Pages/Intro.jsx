@@ -1,6 +1,6 @@
 import React from "react";
 import ParallexArea from "../Components/introPage/ParallexArea";
-import Navbar from "../Components/SubComponents/Navbar";
+import Navbar from "../Components/SubComponents/Navbar3";
 function Intro() {
   return (
     <div>

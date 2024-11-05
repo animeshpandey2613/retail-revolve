@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import SideBar from "./SideBar";
 
 function Navbar({ colorPrimary, colorSecondary }) {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [options, setOptions] = useState(false);
   const [CartView, setCartView] = useState(false);
   const dropdownRef = useRef(null);
@@ -24,7 +24,7 @@ function Navbar({ colorPrimary, colorSecondary }) {
 
   return (
     <div className="absolute top-0 h-20 flex items-center justify-between pl-16 pr-16 w-screen select-none z-20">
-      <SideBar CartView={CartView} setCartView={setCartView} />
+      <SideBar CartView={CartView} setCartView={setCartView}/>
       <Link to="/">
         <div className="h-16 flex items-center gap-5">
           <img src={Logo} alt="Logo" className="w-full h-full object-contain" />
@@ -44,14 +44,12 @@ function Navbar({ colorPrimary, colorSecondary }) {
           {options && (
             <div className="absolute top-12 text-white right-0 backdrop-blur-md border border-gray-300 rounded-lg shadow-lg p-2 w-32">
               <ul className="p-0 m-0">
-                <Link to="/allorders">
-                  <li
-                    className="p-2 hover:bg-[rgba(0,0,0,0.4)] cursor-pointer rounded-lg"
-                    onClick={() => setOptions(false)}
-                  >
-                    All Orders
-                  </li>
-                </Link>
+                <li
+                  className="p-2 hover:bg-[rgba(0,0,0,0.4)] cursor-pointer rounded-lg"
+                  onClick={() => setOptions(false)}
+                >
+                  All Orders
+                </li>
                 <li
                   className="p-2 hover:bg-[rgba(0,0,0,0.4)] cursor-pointer rounded-lg"
                   onClick={() => {
@@ -61,7 +59,6 @@ function Navbar({ colorPrimary, colorSecondary }) {
                 >
                   Show Cart
                 </li>
-                <Link to="/" />
                 <li
                   className="p-2 hover:bg-[rgba(0,0,0,0.4)] cursor-pointer rounded-lg"
                   onClick={() => setOptions(false)}

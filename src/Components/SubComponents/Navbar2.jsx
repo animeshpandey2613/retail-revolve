@@ -42,32 +42,40 @@ function Navbar({ colorPrimary, colorSecondary }) {
             A
           </div>
           {options && (
-            <div className="absolute top-12 text-white right-0 backdrop-blur-md border border-gray-300 rounded-lg shadow-lg p-2 w-32">
+            <div className="absolute top-12 text-white right-0 backdrop-blur-md border border-gray-300 rounded-lg shadow-lg p-2 w-40">
               <ul className="p-0 m-0">
-                <Link to="/allorders">
+                <Link to="/addproducts">
                   <li
                     className="p-2 hover:bg-[rgba(0,0,0,0.4)] cursor-pointer rounded-lg"
                     onClick={() => setOptions(false)}
                   >
-                    All Orders
+                    Add Products
                   </li>
                 </Link>
-                <li
-                  className="p-2 hover:bg-[rgba(0,0,0,0.4)] cursor-pointer rounded-lg"
-                  onClick={() => {
-                    setOptions(false);
-                    setCartView(true);
-                  }}
-                >
-                  Show Cart
-                </li>
-                <Link to="/" />
-                <li
-                  className="p-2 hover:bg-[rgba(0,0,0,0.4)] cursor-pointer rounded-lg"
-                  onClick={() => setOptions(false)}
-                >
-                  Logout
-                </li>
+                <Link to="/manageProducts">
+                  <li
+                    className="p-2 hover:bg-[rgba(0,0,0,0.4)] cursor-pointer rounded-lg"
+                    onClick={() => setOptions(false)}
+                  >
+                    Manage Products
+                  </li>
+                </Link>
+                <Link to="/viewOrders">
+                  <li
+                    className="p-2 hover:bg-[rgba(0,0,0,0.4)] cursor-pointer rounded-lg"
+                    onClick={() => setOptions(false)}
+                  >
+                    View Orders
+                  </li>
+                </Link>
+                <Link to="/form/login">
+                  <li
+                    className="p-2 hover:bg-[rgba(0,0,0,0.4)] cursor-pointer rounded-lg"
+                    onClick={() => setOptions(false)}
+                  >
+                    Logout
+                  </li>
+                </Link>
               </ul>
             </div>
           )}
