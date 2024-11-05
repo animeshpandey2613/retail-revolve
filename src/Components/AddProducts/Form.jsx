@@ -6,7 +6,7 @@ function Form({ Heading, Data, SetData }) {
 
   useEffect(() => {
     const ScrollTrigger = () => {
-      if (PageRef.current && ContentRef.current) {
+      if (PageRef.current && ContentRef.current && ContentRef.current) {
         PageRef.current.style.transform = `translateX(-${
           (window.scrollY / document.documentElement.scrollHeight) *
           ContentRef.current.offsetWidth
@@ -70,7 +70,9 @@ function Form({ Heading, Data, SetData }) {
               <div>Discount Percentage</div>
               <div>
                 <input
-                  placeholder={Data.discountPercentage || "Enter Discount Percentage"}
+                  placeholder={
+                    Data.discountPercentage || "Enter Discount Percentage"
+                  }
                   onKeyUpCapture={KeyHandler}
                   name="discountPercentage"
                   type="text"
@@ -134,7 +136,9 @@ function Form({ Heading, Data, SetData }) {
               <div>Net Content Volume</div>
               <div>
                 <input
-                  placeholder={Data.netContentVolume || "Enter Net Content Volume"}
+                  placeholder={
+                    Data.netContentVolume || "Enter Net Content Volume"
+                  }
                   onKeyUpCapture={KeyHandler}
                   name="netContentVolume"
                   type="text"
@@ -192,8 +196,8 @@ function Form({ Heading, Data, SetData }) {
                 />
               </div>
             </div>
-            
-          </div><div className="flex flex-col gap-5">
+          </div>
+          <div className="flex flex-col gap-5">
             <div>
               <div>Description</div>
               <div>

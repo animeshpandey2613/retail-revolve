@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import "./ResultArea.css";
-function ResultArea({data}) {
+function ResultArea({ data }) {
   const SliderRef = useRef();
   const CardRef = useState();
   const LeftRef = useState();
@@ -11,35 +11,33 @@ function ResultArea({data}) {
   const RightRef2 = useState();
   const [index, setIndex] = useState(0);
   const [cardHeight, setCardHeight] = useState(0);
-  
+
   useEffect(() => {
-    setCardHeight(CardRef.current.offsetHeight);
+    if (CardRef.current) {
+      setCardHeight(CardRef.current.offsetHeight);
+    }
   }, [CardRef]);
 
   useEffect(() => {
-    SliderRef.current.style.transform = `translateX(-${
-      (CardRef.current.offsetWidth + 24) * index
-    }px)`;
-    if (index === 0){
+    if (SliderRef.current && CardRef.current) {
+      SliderRef.current.style.transform = `translateX(-${
+        (CardRef.current.offsetWidth + 24) * index
+      }px)`;
+    }
+    if (index === 0 && LeftRef.current) {
       LeftRef.current.style.display = "none";
       LeftRef2.current.style.opacity = "0";
-
-    } 
-    else{
+    } else if (LeftRef.current) {
       LeftRef.current.style.display = "block";
       LeftRef2.current.style.opacity = "1";
-
     }
-    if (index === data.length - 4){
+    if (index === data.length - 4 && RightRef.current) {
       RightRef.current.style.display = "none";
       RightRef2.current.style.opacity = "0";
-
-    } 
-    else{
+    } else if (RightRef.current) {
       RightRef.current.style.display = "block";
       RightRef2.current.style.opacity = "1";
-
-    } 
+    }
   }, [index, CardRef, LeftRef, RightRef]);
 
   return (
@@ -59,8 +57,8 @@ function ResultArea({data}) {
                 <div className=" w-70 h-70">
                   <img
                     draggable="false"
-                    src={ele.image}
-                    alt="productImage"
+                    src={ele.product_url}
+                    alt="product url"
                     className="w-full h-full object-contain rounded-2xl"
                   />
                 </div>

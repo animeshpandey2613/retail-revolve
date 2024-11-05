@@ -63,7 +63,7 @@ function SideBar({ CartView, setCartView }) {
 
   useEffect(() => {
     // console.log(CartView);
-    if (CartView) {
+    if (CartView && sideRef.current) {
       sideRef.current.style.transform = `translateX(-${sideRef.current.offsetWidth}px)`;
       console.log(isOverflowing);
       sideRef.current.style.position = "absolute";
@@ -200,27 +200,27 @@ function SideBar({ CartView, setCartView }) {
         </div>
       </div>
       <div className="w-1/2 mt-5">
-  <table className="table-auto w-full text-left">
-    <tbody>
-      <tr className=" border-gray-200">
-        <td className="p-2 font-semibold">Total Products Price:</td>
-        <td className="p-2">₹65,400/-</td>
-      </tr>
-      <tr className="b border-gray-200">
-        <td className="p-2 font-semibold">Total GST (7%):</td>
-        <td className="p-2">₹4,578/-</td>
-      </tr>
-      <tr className="border-b border-gray-200">
-        <td className="p-2 font-semibold">Discount Provided (-32%):</td>
-        <td className="p-2">₹20,928/-</td>
-      </tr>
-      <tr>
-        <td className="p-2 font-semibold">Amount To be Paid:</td>
-        <td className="p-2">₹49,050/-</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+        <table className="table-auto w-full text-left">
+          <tbody>
+            <tr className=" border-gray-200">
+              <td className="p-2 font-semibold">Total Products Price:</td>
+              <td className="p-2">₹65,400/-</td>
+            </tr>
+            <tr className="b border-gray-200">
+              <td className="p-2 font-semibold">Total GST (7%):</td>
+              <td className="p-2">₹4,578/-</td>
+            </tr>
+            <tr className="border-b border-gray-200">
+              <td className="p-2 font-semibold">Discount Provided (-32%):</td>
+              <td className="p-2">₹20,928/-</td>
+            </tr>
+            <tr>
+              <td className="p-2 font-semibold">Amount To be Paid:</td>
+              <td className="p-2">₹49,050/-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <div
         onClick={() => {

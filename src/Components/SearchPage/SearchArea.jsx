@@ -38,16 +38,20 @@ function SearchPage() {
     }
   };
   const ExploreProduct = () => {
-    setSearchDetails({ search_name: "Featured" });
+    setSearchDetails((temp) => {
+      return { ...temp, search_name: "Featured" };
+    });
     setSearchStatus(true);
   };
   useEffect(() => {
     const requestData = async () => {
-      const newData = axios.post(
+      const newData = await axios.post(
         "http://localhost:2020/finaldemo/ProductServlet",
         seachDetails
       );
-      setRealData(newData);
+      setRealData(newData.data);
+      console.log(newData);
+      ClickHandler();
     };
     if (SearchStatus === true) {
       requestData();
@@ -57,61 +61,61 @@ function SearchPage() {
   const [RealData, setRealData] = useState([
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
@@ -119,61 +123,61 @@ function SearchPage() {
   const Data = [
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
     {
       wholeSeller: "Ajanta wholeseller",
-      image: Product,
+      product_url: Product,
       name: "Saffola Gold Oil",
       price: 500,
     },
