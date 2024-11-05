@@ -8,6 +8,8 @@ import AllOrders from "./Pages/AllOrders";
 import AddProducts from "./Pages/AddProducts";
 import ManageProducts from "./Pages/ManageProducts";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import EditProducts from "./Pages/EditProducts";
+import ViewOrders from "./Pages/ViewOrders";
 
 function App() {
   const Router = createBrowserRouter([
@@ -42,6 +44,14 @@ function App() {
     {
       path: "/manageProducts",
       element: <ManageProducts />,
+    },
+    {
+      path: "/editProducts",
+      element: <EditProducts />,
+    },
+    {
+      path: "/viewOrders",
+      element: <ViewOrders />,
     },
   ]);
   return (

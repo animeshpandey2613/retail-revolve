@@ -4,13 +4,19 @@ import Navbar from "../SubComponents/Navbar";
 import ResultArea from "../SubComponents/ResultArea";
 import Product from "../../images/item Image.jpg";
 import Back from "../../images/Retailer Clipart.jpeg";
+import axios from "axios";
 function SearchPage() {
   const [focus, setFocus] = useState(false);
+  const [SearchStatus, setSearchStatus] = useState(false);
   const disappearRef = useRef();
   const disappearRef2 = useRef();
   const searchBarRef = useRef();
   const BackBlurManager = useRef();
   const BackRef = useState();
+  const [seachDetails, setSearchDetails] = useState({
+    search_name: "",
+    search_type: "product",
+  });
   const ClickHandler = () => {
     disappearRef.current.style.opacity = "0";
     disappearRef2.current.style.opacity = "0";
@@ -21,10 +27,96 @@ function SearchPage() {
   };
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      ClickHandler();
+      if (e.target.value !== "") {
+        setSearchDetails((temp) => {
+          return { ...temp, search_name: e.target.value };
+        });
+      } else {
+        setSearchDetails({ search_name: "Featured" });
+      }
+      setSearchStatus(true);
     }
   };
-  const data = [
+  const ExploreProduct = () => {
+    setSearchDetails({ search_name: "Featured" });
+    setSearchStatus(true);
+  };
+  useEffect(() => {
+    const requestData = async () => {
+      const newData = axios.post(
+        "http://localhost:2020/finaldemo/ProductServlet",
+        seachDetails
+      );
+      setRealData(newData);
+    };
+    if (SearchStatus === true) {
+      requestData();
+    }
+  }, [seachDetails, SearchStatus]);
+
+  const [RealData, setRealData] = useState([
+    {
+      wholeSeller: "Ajanta wholeseller",
+      image: Product,
+      name: "Saffola Gold Oil",
+      price: 500,
+    },
+    {
+      wholeSeller: "Ajanta wholeseller",
+      image: Product,
+      name: "Saffola Gold Oil",
+      price: 500,
+    },
+    {
+      wholeSeller: "Ajanta wholeseller",
+      image: Product,
+      name: "Saffola Gold Oil",
+      price: 500,
+    },
+    {
+      wholeSeller: "Ajanta wholeseller",
+      image: Product,
+      name: "Saffola Gold Oil",
+      price: 500,
+    },
+    {
+      wholeSeller: "Ajanta wholeseller",
+      image: Product,
+      name: "Saffola Gold Oil",
+      price: 500,
+    },
+    {
+      wholeSeller: "Ajanta wholeseller",
+      image: Product,
+      name: "Saffola Gold Oil",
+      price: 500,
+    },
+    {
+      wholeSeller: "Ajanta wholeseller",
+      image: Product,
+      name: "Saffola Gold Oil",
+      price: 500,
+    },
+    {
+      wholeSeller: "Ajanta wholeseller",
+      image: Product,
+      name: "Saffola Gold Oil",
+      price: 500,
+    },
+    {
+      wholeSeller: "Ajanta wholeseller",
+      image: Product,
+      name: "Saffola Gold Oil",
+      price: 500,
+    },
+    {
+      wholeSeller: "Ajanta wholeseller",
+      image: Product,
+      name: "Saffola Gold Oil",
+      price: 500,
+    },
+  ]);
+  const Data = [
     {
       wholeSeller: "Ajanta wholeseller",
       image: Product,
@@ -123,7 +215,12 @@ function SearchPage() {
                 type="radio"
                 value="wholeseller"
                 name="searchType"
-                id="wholeseller"
+                id="wholesaler"
+                onClick={() => {
+                  setSearchDetails((e) => {
+                    return { ...e, search_type: "wholesaler" };
+                  });
+                }}
                 className="h-4 w-4"
               />
               <label className="text-white" htmlFor="wholeseller">
@@ -136,6 +233,11 @@ function SearchPage() {
                 value="product"
                 name="searchType"
                 defaultChecked="true"
+                onClick={() => {
+                  setSearchDetails((e) => {
+                    return { ...e, search_type: "product" };
+                  });
+                }}
                 id="product"
                 className="h-4 w-4"
               />
@@ -148,7 +250,7 @@ function SearchPage() {
             OR
           </div>
           <div
-            onClick={ClickHandler}
+            onClick={ExploreProduct}
             ref={disappearRef2}
             className=" text-3xl text-darkestColor px-4 cursor-pointer bg-white hover:bg-darkestColor duration-500 hover:text-lightColor py-3 border-darkestColor border-2 hover:border-lightColor rounded-xl transition-all ease-in-out shadow-2xl hover:shadow-[0_0_200px_30px_rgba(59,130,246,0.7)]"
           >
@@ -172,12 +274,11 @@ function SearchPage() {
         </div>
         <div className="absolute z-10 ">
           <div className="mt-44 relative z-20">
-            <ResultArea data={data} />
-            <ResultArea data={data} />
-            <ResultArea data={data} />
+            <ResultArea data={RealData} />
+            <ResultArea data={Data} />
           </div>
           <div className="absolute z-50 top-0">
-          <Navbar colorPrimary={"lightColor"} />
+            <Navbar colorPrimary={"lightColor"} />
           </div>
         </div>
       </div>
