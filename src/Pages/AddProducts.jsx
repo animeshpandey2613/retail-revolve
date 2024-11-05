@@ -5,6 +5,7 @@ import Form from "../Components/AddProducts/Form";
 import axios from "axios";
 function AddProducts() {
   const [data, setData] = useState({
+    productId:Math.random()*1000,
     productName: "",
     productPrice: "",
     discountPercentage: "",
