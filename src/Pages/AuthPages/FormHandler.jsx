@@ -214,6 +214,7 @@ function FormHandler() {
     const resp = await axios.post(
       "http://localhost:2020/finaldemo/LoginServlet",
       { ...loginInfo } // Use loginInfo state
+      
     );
     console.log(resp);
   };
