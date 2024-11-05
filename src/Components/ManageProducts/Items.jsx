@@ -67,7 +67,7 @@ function Items() {
 
   return (
     <div className="absolute w-screen flex justify-center z-20 top-20">
-      <div className="w-4/5 p-10 backdrop-blur-md text-white mt-20">
+      <div className="w-[90vw] p-10 backdrop-blur-md text-white mt-20">
         <div className="w-full text-center text-3xl">All Products</div>
         <div className="m-5 gap-10 flex flex-wrap">
           {data.map((ele) => {
@@ -93,11 +93,13 @@ function Items() {
                   <div className="text-3xl">{ele.price}/-</div>
                 </div>
                 <div className=" w-full flex justify-around gap-2">
-                    <div className="px-4 py-2 border-2 border-red bg-[rgba(100,0,0,0.3)] duration-500 rounded-lg hover:bg-[rgba(100,0,0,0.6)]">
+                  <div className="px-4 py-2 border-2 border-red bg-[rgba(100,0,0,0.3)] duration-500 rounded-lg hover:bg-[rgba(100,0,0,0.6)]">
                     Remove Product
-                    </div>
-                    <div className="px-4 py-2 border-2 border-red bg-[rgba(0,100,0,0.3)] duration-500 rounded-lg hover:bg-[rgba(0,100,0,0.6)]">Edit Product</div>
-                    </div>
+                  </div>
+                  <div className="px-4 py-2 border-2 border-red bg-[rgba(0,100,0,0.3)] duration-500 rounded-lg hover:bg-[rgba(0,100,0,0.6)]">
+                    Edit Product
+                  </div>
+                </div>
               </div>
             );
           })}

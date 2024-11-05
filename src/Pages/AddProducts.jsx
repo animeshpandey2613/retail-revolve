@@ -5,34 +5,36 @@ import Form from "../Components/AddProducts/Form";
 import axios from "axios";
 function AddProducts() {
   const [data, setData] = useState({
-    productId:Math.random()*1000,
+    productId: Math.floor(Math.random() * 1000).toString(),
     productName: "",
     productPrice: "",
+    wholeseller_aadhar: "758494029384",
     discountPercentage: "",
     brandName: "",
     dietType: "",
     stockSize: "",
     flavourName: "",
-    NetContentVolume: "",
+    netContentVolume: "",
     specialFeature: "",
     liquidVolume: "",
-    Description: "",
+    description: "",
     productType: "",
     imageUrl: "",
   });
   const heading = "Add Product";
   const SubmitHandler = async () => {
-    const response = await axios(
+    const response = await axios.post(
       "http://localhost:2020/finaldemo/AddProduct",
       data
     );
     console.log(response);
+    // console.log(data);
   };
   return (
     <div className="h-[200vh] relative ">
       <Overlay />
       <Navbar colorPrimary={"white"} colorSecondary={"white"} />
-      <Form Data={data} Heading={heading} />
+      <Form Data={data} Heading={heading} SetData={setData} />
       <div className="absolute bottom-10 w-screen flex justify-center z-10">
         <div
           onClick={SubmitHandler}

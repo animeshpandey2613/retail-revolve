@@ -204,6 +204,7 @@ function Form({ Heading, Data, SetData }) {
                 <textarea
                   placeholder={Data.description || "Enter Description"}
                   name="description"
+                  onKeyUpCapture={KeyHandler}
                   rows={5}
                   cols={30}
                   className="px-3 py-2 bg-white rounded-3xl text-black outline-none"
