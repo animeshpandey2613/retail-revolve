@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Product from "../../images/item Image.jpg";
+import { useDispatch} from "react-redux";
+import { addProduct } from "../../features/Retailer/CartSlice";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import InnerImageZoom from "react-inner-image-zoom";
 import {
@@ -33,6 +34,18 @@ function InnerPage({ ID }) {
     };
     requestData();
   }, [ID]);
+
+const dispatch = useDispatch();
+const AddingToCart=()=>{
+  dispatch(addProduct({
+    product_id:data.id,
+    image: data.image,
+    name: data.product_name,
+    quantity: Quantity,
+    wholeseller: data.productWholsellerName,
+    price: data.price,
+  }));
+}
 
   return (
     <div className="w-screen flex justify-center text-white mb-14">
@@ -156,7 +169,7 @@ function InnerPage({ ID }) {
                         </CDropdown>
                       </div>
                     </div>
-                    <div className="w-full duration-700 border-green-700 b-2 py-1 border-2 mt-2 rounded-3xl text-center hover:bg-green-100 text-lg cursor-pointer hover:text-green-700">
+                    <div onClick={AddingToCart} className="w-full duration-700 border-green-700 b-2 py-1 border-2 mt-2 rounded-3xl text-center hover:bg-green-100 text-lg cursor-pointer hover:text-green-700">
                       Add to Cart
                     </div>
                   </div>
