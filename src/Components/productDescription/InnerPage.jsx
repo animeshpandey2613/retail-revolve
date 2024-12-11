@@ -29,7 +29,7 @@ function InnerPage({ ID }) {
         ID
       );
       setData(newData.data[0]);
-      console.log(newData.data[0].image);
+      console.log(newData.data[0]);
     };
     requestData();
   }, [ID]);
