@@ -15,7 +15,7 @@ function InnerPage({ ID }) {
   const [Quantity, setQuantity] = useState(1);
   const [data, setData] = useState({
     image: "",
-    productName: "",
+    product_name: "",
     productWholsellerName: "",
     description: [],
     price: "",
@@ -40,20 +40,14 @@ function InnerPage({ ID }) {
         <div className="flex justify-between">
           <div className="w-1/2 flex justify-center">
             <div className="px-10 py-10">
-              <InnerImageZoom
-                src={data.image}
-                className=" w-54 rounded-xl"
-              />
+              <InnerImageZoom src={data.image} className=" w-54 rounded-xl" />
             </div>
           </div>
           <div className="w-1/2 flex justify-center">
             <div className="py-10 w-full flex gap-6 flex-col">
               <div>
-                <div className="text-3xl">
-                  Saffola Gold Refined Oil|Blend of Rice Bran Oil & Sunflower
-                  Oil|Cooking Oil| Pro Healthy Lifestyle Edible Oil
-                </div>
-                <div className="mt-2 text-xl">Ashok Wholesale</div>
+                <div className="text-3xl">{data.product_name}</div>
+                <div className="mt-2 text-xl"></div>
               </div>
               <div className="flex justify-between">
                 <div className="flex flex-col gap-4">
@@ -94,7 +88,7 @@ function InnerPage({ ID }) {
                         {"("}-37%{")"}
                       </div>
                       <div className="flex items-center">
-                        ₹499.<sub>99</sub>/-
+                        ₹{data.price}.<sub>99</sub>/-
                       </div>
                     </div>
                     <div className="flex gap-2">
@@ -172,7 +166,7 @@ function InnerPage({ ID }) {
                   <tbody>
                     <tr className="border-b">
                       <td className="font-bold p-2">Brand:</td>
-                      <td className="p-2">Saffola</td>
+                      <td className="p-2">{data.brand}</td>
                     </tr>
                     <tr className="border-b">
                       <td className="font-bold p-2">Diet Type:</td>
@@ -180,19 +174,19 @@ function InnerPage({ ID }) {
                     </tr>
                     <tr className="border-b">
                       <td className="font-bold p-2">Flavour:</td>
-                      <td className="p-2">Sunflower, Rice Bran</td>
+                      <td className="p-2">{data.flavour}</td>
                     </tr>
                     <tr className="border-b">
                       <td className="font-bold p-2">Net Content Volume:</td>
-                      <td className="p-2">5 Litres, 5000 Millilitres</td>
+                      <td className="p-2">{data.liquid_volume} Litres</td>
                     </tr>
                     <tr className="border-b">
                       <td className="font-bold p-2">Special Feature:</td>
-                      <td className="p-2">Blended</td>
+                      <td className="p-2">{data.special_feature}</td>
                     </tr>
                     <tr className="border-b">
                       <td className="font-bold p-2">Liquid Volume:</td>
-                      <td className="p-2">5 Litres</td>
+                      <td className="p-2">{data.liquid_volume} Litres</td>
                     </tr>
                   </tbody>
                 </table>
