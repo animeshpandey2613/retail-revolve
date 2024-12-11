@@ -47,7 +47,7 @@ function InnerPage({ ID }) {
             <div className="py-10 w-full flex gap-6 flex-col">
               <div>
                 <div className="text-3xl">{data.product_name}</div>
-                <div className="mt-2 text-xl"></div>
+                <div className="mt-2 text-xl">{data.wholeseller_name}</div>
               </div>
               <div className="flex justify-between">
                 <div className="flex flex-col gap-4">
