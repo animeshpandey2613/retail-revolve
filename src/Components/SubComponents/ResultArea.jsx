@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import "./ResultArea.css";
+import { Link } from "react-router-dom";
 function ResultArea({ data }) {
   const SliderRef = useRef();
   const CardRef = useState();
@@ -50,30 +51,32 @@ function ResultArea({ data }) {
         >
           {data.map((ele) => {
             return (
-              <div
-                className="p-2 text-lightColor mt-10 mb-10 cursor-pointer bg-darkestColorAdjust2 hover:shadow-[0_0_30px_2px_rgba(59,130,246,0.7)] hover:bg-darkestColor rounded-2xl  border-2 hover:border-white hover:border-2  hover:scale-105 duration-500"
-                ref={CardRef}
-              >
-                <div className=" w-70 h-70">
-                  <img
-                    draggable="false"
-                    src={ele.product_url}
-                    alt="product url"
-                    className="w-full h-full object-contain rounded-2xl"
-                  />
-                </div>
-                <div className="flex mt-4 mb-4 justify-between gap-5">
-                  <div className="flex flex-col w-3/4 overflow-x-hidden whitespace-nowrap">
-                    <div className="text-md text-ellipsis overflow-x-hidden">
-                      {ele.wholeSeller}
-                    </div>
-                    <div className="text-xl text-ellipsis overflow-x-hidden">
-                      {ele.name}
-                    </div>
+              <Link to="/search/description/product/123">
+                <div
+                  className="p-2 text-lightColor mt-10 mb-10 cursor-pointer bg-darkestColorAdjust2 hover:shadow-[0_0_30px_2px_rgba(59,130,246,0.7)] hover:bg-darkestColor rounded-2xl  border-2 hover:border-white hover:border-2  hover:scale-105 duration-500"
+                  ref={CardRef}
+                >
+                  <div className=" w-70 h-70">
+                    <img
+                      draggable="false"
+                      src={ele.product_url}
+                      alt="product url"
+                      className="w-56 h-56 object-fill rounded-2xl"
+                    />
                   </div>
-                  <div className="text-3xl">{ele.price}/-</div>
+                  <div className="flex mt-4 mb-4 justify-between gap-5">
+                    <div className="flex flex-col w-3/4 overflow-x-hidden whitespace-nowrap">
+                      <div className="text-md text-ellipsis overflow-x-hidden">
+                        {ele.wholeSeller}
+                      </div>
+                      <div className="text-xl text-ellipsis overflow-x-hidden">
+                        {ele.name}
+                      </div>
+                    </div>
+                    <div className="text-3xl">{ele.price}/-</div>
+                  </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
