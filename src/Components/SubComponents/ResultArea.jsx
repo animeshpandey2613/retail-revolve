@@ -56,7 +56,7 @@ function ResultArea({ data }) {
                   className="p-2 text-lightColor mt-10 mb-10 cursor-pointer bg-darkestColorAdjust2 hover:shadow-[0_0_30px_2px_rgba(59,130,246,0.7)] hover:bg-darkestColor rounded-2xl  border-2 hover:border-white hover:border-2  hover:scale-105 duration-500"
                   ref={CardRef}
                 >
-                  <div className=" w-70 h-70">
+                  <div className=" w-64 h-70">
                     <img
                       draggable="false"
                       src={ele.product_url}
