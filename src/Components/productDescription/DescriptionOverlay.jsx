@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Navbar from "../SubComponents/Navbar";
 import InnerPage from "./InnerPage";
 import Back from "../../images/Retailer Clipart.jpeg";
-function DescriptionOverlay() {
+function DescriptionOverlay({ID}) {
   return (
     <div className="h-screen bg-black">
       <div className="absolute h-screen w-screen  z-0 duration-1000 bg-black">
@@ -18,7 +18,7 @@ function DescriptionOverlay() {
         <div className="absolute z-10 ">
           <Navbar colorPrimary={"lightColor"} />
           <div className="mt-24">
-            <InnerPage />
+            <InnerPage ID= {ID}/>
           </div>
         </div>
       </div>

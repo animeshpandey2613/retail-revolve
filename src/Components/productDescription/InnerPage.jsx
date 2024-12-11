@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Product from "../../images/item Image.jpg";
 import "react-inner-image-zoom/lib/InnerImageZoom/styles.css";
 import InnerImageZoom from "react-inner-image-zoom";
@@ -9,9 +9,33 @@ import {
   CDropdownItem,
 } from "@coreui/react";
 import "@coreui/coreui/dist/css/coreui.min.css";
+import axios from "axios";
 
-function InnerPage() {
+function InnerPage({ID}) {
   const [Quantity, setQuantity] = useState(1);
+  const [data, setData] = useState({
+    image:"",
+    productName:"",
+    productWholsellerName:"",
+    description:[],
+    price:"",
+    stockSize:"",
+
+  })
+  useEffect(() => {
+    const requestData = async () => {
+      console.log(ID)
+      const newData = await axios.post(
+        "http://localhost:2020/finaldemo/ProductDetailsServlet", ID
+      );
+      setData(newData.data);
+      console.log(newData);
+    };
+    requestData();
+  }, [ID]);
+
+
+
   return (
     <div className="w-screen flex justify-center text-white mb-14">
         <div className=" flex flex-col items-center w-[85vw] min-h-[100vh] bg-[rgba(255,255,255,0.1)] overflow-hidden rounded-3xl backdrop-blur-lg">
