@@ -5,60 +5,23 @@ import {
   CDropdownMenu,
   CDropdownItem,
 } from "@coreui/react";
-import Product from "../../images/item Image.jpg";
+import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { removeProduct } from "../../features/Retailer/CartSlice";
 function SideBar({ CartView, setCartView }) {
   const handleQuantityChange = (index, newQuantity) => {
     const updatedData = [...data];
     updatedData[index].quantity = newQuantity; // Update quantity for specific item
-    setData(updatedData);
   };
 
   const [isOverflowing, setIsOverflowing] = useState(false);
 
   const sideRef = useRef();
 
-  const [data, setData] = useState([
-    {
-      image: Product,
-      name: "Saffola Gold Oil",
-      quantity: 2,
-      Wholeseller: "Ajanta Wholesale",
-      price: 499.99,
-    },
-    {
-      image: Product,
-      name: "Saffola Gold Oil",
-      quantity: 2,
-      Wholeseller: "Ajanta Wholesale",
-      price: 499.99,
-    },
-    {
-      image: Product,
-      name: "Saffola Gold Oil",
-      quantity: 2,
-      Wholeseller: "Ajanta Wholesale",
-      price: 499.99,
-    },
-    {
-      image: Product,
-      name: "Saffola Gold Oil",
-      quantity: 2,
-      Wholeseller: "Ajanta Wholesale",
-      price: 499.99,
-    },
-    {
-      image: Product,
-      name: "Saffola Gold Oil",
-      quantity: 2,
-      Wholeseller: "Ajanta Wholesale",
-      price: 499.99,
-    },
-  ]);
-
+  const data = useSelector((state) => state.cartData);
+  const dispatch = useDispatch();
   const CartRemoveHandler = (index) => {
-    const newData = data.filter((item, i) => i !== index);
-    setData(newData);
-    console.log(newData);
+    dispatch(removeProduct(index));
   };
 
   useEffect(() => {
@@ -103,6 +66,20 @@ function SideBar({ CartView, setCartView }) {
     };
   }, []);
 
+  const placeOrder = () => {
+    const userAadhar = window.localStorage.getItem("aadhar");
+    data.forEach(async (ele) => {
+      await axios.post(
+        "http://localhost:2020/finaldemo/ProductDetailsServlet",
+        {
+          aadhar_no: userAadhar,
+          id: data.product_id,
+          quantity: data.quantity,
+          status: "placed",
+        }
+      );
+    });
+  };
   return (
     <div
       ref={sideRef}
@@ -186,7 +163,7 @@ function SideBar({ CartView, setCartView }) {
                       </CDropdown>
                     </div>
                   </div>
-                  <div>{ele.Wholeseller}</div>
+                  <div>{ele.wholeseller}</div>
                   <div
                     onClick={() => CartRemoveHandler(index)}
                     className="p-1 border-2 border-red-700 text-red-400 bg-[rgba(100,0,0,0.2)] rounded-lg mt-2 text-center hover:bg-[rgba(100,0,0,0.5)] hover:text-white cursor-pointer duration-700"
@@ -224,6 +201,7 @@ function SideBar({ CartView, setCartView }) {
 
       <div
         onClick={() => {
+          placeOrder();
           setCartView(false);
         }}
         className="mt-5 p-2 mb-5 border-2 border-green-600 text-green-600 rounded-lg cursor-pointer hover:bg-green-900 hover:text-white"

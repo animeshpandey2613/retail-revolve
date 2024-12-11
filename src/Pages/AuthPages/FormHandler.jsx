@@ -194,6 +194,7 @@ function FormHandler() {
 
   //
   const submitHandlerRetailer = async () => {
+    window.localStorage.setItem("aadhar", retailerInfo.aadhar_no);
     const resp = await axios.post(
       "http://localhost:2020/finaldemo/RegistrationServlet",
       { ...retailerInfo, user_type: "retailer" } // Use retailerInfo state
@@ -203,6 +204,7 @@ function FormHandler() {
   };
 
   const submitHandlerWholeseller = async () => {
+    window.localStorage.setItem("aadhar", wholesellerInfo.aadhar_no);
     console.log(wholesellerInfo);
     const resp = await axios.post(
       "http://localhost:2020/finaldemo/RegistrationServlet",
@@ -213,6 +215,7 @@ function FormHandler() {
   };
 
   const submitHandlerLogin = async () => {
+    window.localStorage.setItem("aadhar", loginInfo.aadhar_no);
     const resp = await axios.post(
       "http://localhost:2020/finaldemo/LoginServlet",
       { ...loginInfo } // Use loginInfo state
