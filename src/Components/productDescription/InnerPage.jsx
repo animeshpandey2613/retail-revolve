@@ -49,7 +49,8 @@ function InnerPage({ ID }) {
                 <div className="text-3xl">{data.product_name}</div>
                 <div className="mt-2 text-xl">{data.wholeseller_name}</div>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between"> 
+                
                 <div className="flex flex-col gap-4">
                   <div className="max-w-72">
                     <div>Description: </div>
